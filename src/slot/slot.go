@@ -18,11 +18,11 @@ type Slot struct {
 
 // New Slot Object creation function
 func New() *Slot {
-	return new(Slot).Init()
+	return new(Slot).init()
 }
 
-// Init - Initialise Object with default values
-func (sl *Slot) Init() *Slot {
+// init - initialise Object with default values
+func (sl *Slot) init() *Slot {
 	sl.Number = SlotNumberLowerLimit - 1
 	sl.Vehicle = nil
 
@@ -75,4 +75,10 @@ func (sl *Slot) Allocate(vehicle *vehicle.Vehicle) (*Slot, error) {
 // Mainly check slot number allocated or not
 func (sl *Slot) IsValid() bool {
 	return sl.Number >= SlotNumberLowerLimit
+}
+
+// Free remove vehicle object from slot
+func (sl *Slot) Free() *Slot {
+	sl.Vehicle = nil
+	return sl
 }
