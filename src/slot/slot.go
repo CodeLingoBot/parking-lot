@@ -54,3 +54,25 @@ func (sl *Slot) GetNumber() ptypes.Index {
 func (sl *Slot) IsFree() bool {
 	return sl.Vehicle == nil
 }
+
+// Allocate set a vehicle object to slot, so that slot will be used
+// Slot without valid slot number should show error
+// Already using slot should not reused until slot is free
+func (sl *Slot) Allocate(vehicle *vehicle.Vehicle) (*Slot, error) {
+	if !sl.IsValid() {
+		return sl, perror.ErrVehicleAssignInvalidSlot
+	}
+
+	if nil != sl.Vehicle {
+		return sl, perror.ErrSlotAlreadyAllocated
+	}
+
+	sl.Vehicle = vehicle
+	return sl, nil
+}
+
+// IsValid help to check the slot is valid or not
+// Mainly check slot number allocated or not
+func (sl *Slot) IsValid() bool {
+	return sl.Number >= SlotNumberLowerLimit
+}
