@@ -1,14 +1,5 @@
 package main
 
-// Vehicle stores number and Color of vehicle
-type Vehicle struct {
-	// Number and Color is defined as string
-	// eg
-	// 	Number: "KA-01-HH-01234"
-	// 	Color: "White"
-	Number, Color string
-}
-
 // Capacity of parking center data type
 type Capacity uint64
 
