@@ -48,3 +48,9 @@ func IsValidSlotNumber(Number ptypes.Index) bool {
 func (sl *Slot) GetNumber() ptypes.Index {
 	return sl.Number
 }
+
+// IsFree Verifies that slot is free or not, if no vehicle allocated
+// then vehicle property will be nil
+func (sl *Slot) IsFree() bool {
+	return sl.Vehicle == nil
+}
