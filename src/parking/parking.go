@@ -134,6 +134,25 @@ func (pc *Center) RemoveVehicleByNumber(number string) ([]*slot.Slot, error) {
 	return slots, err
 }
 
+// RemoveVehicleBySlotNumber - remove slot from center slot list by slot number
+func (pc *Center) RemoveVehicleBySlotNumber(Number ptypes.Index) (*slot.Slot, error) {
+	oSlot, err := pc.GetSlot(Number)
+	if nil != err {
+		return oSlot, err
+	}
+
+	pc.remove(oSlot)
+	return oSlot, nil
+}
+
+// GetSlot from center slot list by vehicle number
+func (pc *Center) GetSlot(Number ptypes.Index) (*slot.Slot, error) {
+	if (Number) < (ptypes.Index(pc.Capacity)+pc.startIndex) && Number >= pc.startIndex {
+		return pc.slots[Number-pc.startIndex], nil
+	}
+	return nil, perror.ErrInvalidGetSlotNumber
+}
+
 // GetSlotsBy vehicle property { number, color }
 func (pc *Center) GetSlotsBy(property, value string) ([]*slot.Slot, error) {
 	var arrSlots = make([]*slot.Slot, 0)
