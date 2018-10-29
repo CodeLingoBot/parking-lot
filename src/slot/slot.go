@@ -82,3 +82,8 @@ func (sl *Slot) Free() *Slot {
 	sl.Vehicle = nil
 	return sl
 }
+
+// GetVehicle - get vehicle object from allocated slot
+func (sl *Slot) GetVehicle() *vehicle.Vehicle {
+	return sl.Vehicle
+}
