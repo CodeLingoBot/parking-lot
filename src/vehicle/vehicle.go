@@ -41,3 +41,8 @@ func (v *Vehicle) GetColour() string {
 func (v *Vehicle) GetNumber() string {
 	return v.Number
 }
+
+// IsEquals - check object equality
+func (v *Vehicle) IsEquals(vehicle *Vehicle) bool {
+	return v.Number == vehicle.GetNumber() && v.GetColour() == vehicle.GetColour()
+}

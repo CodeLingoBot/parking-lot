@@ -111,3 +111,47 @@ func (pc *Center) remove(s *slot.Slot) {
 	s.Free()
 	pc.Counter = pc.Counter - 1
 }
+
+// RemoveVehicle - remove vehicle from center slot list by vehicle objec
+func (pc *Center) RemoveVehicle(vehicle *vehicle.Vehicle) ([]*slot.Slot, error) {
+	var arrSlots = make([]*slot.Slot, 0)
+	for _, s := range pc.slots {
+		v := s.GetVehicle()
+		if nil != v && v.IsEquals(vehicle) {
+			pc.remove(s)
+			arrSlots = append(arrSlots, s)
+		}
+	}
+	return arrSlots, nil
+}
+
+// RemoveVehicleByNumber - remove vehicle from center slot list by vehicle number
+func (pc *Center) RemoveVehicleByNumber(number string) ([]*slot.Slot, error) {
+	slots, err := pc.GetSlotsBy("number", number)
+	for _, v := range slots {
+		pc.remove(v)
+	}
+	return slots, err
+}
+
+// GetSlotsBy vehicle property { number, color }
+func (pc *Center) GetSlotsBy(property, value string) ([]*slot.Slot, error) {
+	var arrSlots = make([]*slot.Slot, 0)
+	var val string
+	for _, s := range pc.slots {
+		v := s.GetVehicle()
+		if nil != v {
+			switch property {
+			case "number":
+				val = v.GetNumber()
+			case "color":
+				val = v.GetColour()
+			}
+
+			if value == val {
+				arrSlots = append(arrSlots, s)
+			}
+		}
+	}
+	return arrSlots, nil
+}
