@@ -32,6 +32,12 @@ func (s *Store) init() *Store {
 	return s
 }
 
+// Get : store instance can be creted
+// 	Singleton instance creation and return
+func Get() *Store {
+	return New()
+}
+
 // GetParkingCenter : Return the current parking center instance
 func (s *Store) GetParkingCenter() *parking.Center {
 	return s.parkingCenter
