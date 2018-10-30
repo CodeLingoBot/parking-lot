@@ -40,7 +40,6 @@ func TestCommand_Run(t *testing.T) {
 		{nil, strings.Join(
 			[]string{
 				"Slot No.    Registration No     Colour",
-				"------------------------------------------",
 				"1           KA-01-HH-1234       White",
 				"2           KA-01-HH-9999       White",
 				"3           KA-01-BB-0001       Black",
