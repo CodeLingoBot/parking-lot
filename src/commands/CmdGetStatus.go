@@ -41,7 +41,7 @@ func (st *CmdGetStatus) Verify() error {
 // Run to execute the command and provide result
 func (st *CmdGetStatus) Run() (string, error) {
 	var outPutList = []string{
-		fmt.Sprintf("%-12s%-19s%-10s", "Slot No.", "Registration No", "Colour"),
+		fmt.Sprintf("%-12s%-19s%-s", "Slot No.", "Registration No", "Colour"),
 	}
 	pC := store.Get().GetParkingCenter()
 	slots, err := pC.ReportFilledSlots()
@@ -51,7 +51,7 @@ func (st *CmdGetStatus) Run() (string, error) {
 			outPutList = append(
 				outPutList,
 				fmt.Sprintf(
-					"%-12v%-19v%-10v",
+					"%-12v%-19v%-v",
 					s.GetNumber(),
 					v.GetNumber(),
 					v.GetColour(),
