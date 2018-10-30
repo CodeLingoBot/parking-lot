@@ -42,7 +42,6 @@ func (st *CmdGetStatus) Verify() error {
 func (st *CmdGetStatus) Run() (string, error) {
 	var outPutList = []string{
 		fmt.Sprintf("%-12s%-20s%-10s", "Slot No.", "Registration No", "Colour"),
-		fmt.Sprintf("%-12v%-20v%-10v", "------------", "--------------------", "----------"),
 	}
 	pC := store.Get().GetParkingCenter()
 	slots, err := pC.ReportFilledSlots()
