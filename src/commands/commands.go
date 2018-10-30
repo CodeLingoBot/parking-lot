@@ -32,6 +32,7 @@ func NewManager() *Manager {
 	mgrCmd.Register(NewCmdGetRegNumWithColour())
 	mgrCmd.Register(NewCmdGetSlotNumWithColour())
 	mgrCmd.Register(NewCmdGetSlotNumWithRegNum())
+	mgrCmd.Register(NewCmdExit())
 	mgrCmd.Register(NewCmdHelp())
 	return mgrCmd
 }
