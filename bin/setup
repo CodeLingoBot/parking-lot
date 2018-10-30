@@ -28,5 +28,5 @@ go test slot
 go test parking
 go test commands
 
-go build -o bin_parking_lot src/main.go
-chmod 755 bin_parking_lot
+go build -o bin/parking_lot src/main.go
+chmod 755 bin/parking_lot
