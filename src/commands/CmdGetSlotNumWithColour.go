@@ -3,9 +3,10 @@
 package commands
 
 import (
-	"strings"
 	"fmt"
 	"perror"
+	"store"
+	"strings"
 )
 
 // CmdGetSlotNumWithColour defined arguments and related methods
@@ -57,7 +58,7 @@ func (cgc *CmdGetSlotNumWithColour) Run() (string, error) {
 		}
 	} else {
 		outPutList = []string{
-			err.Error()
+			err.Error(),
 		}
 	}
 	cgc.OutPut = strings.Join(outPutList, perror.Comma)

@@ -1,5 +1,5 @@
 // Package commands implements the basic shell command execution process
-// Include help, parse, verify, run
+// Includes help, parse, verify, run
 package commands
 
 import (

@@ -2,8 +2,10 @@
 package commands
 
 import (
-	"perror"
 	"fmt"
+	"perror"
+	"store"
+	"strings"
 )
 
 // CmdGetStatus defined arguments and related methods
@@ -59,7 +61,7 @@ func (st *CmdGetStatus) Run() (string, error) {
 		}
 	} else {
 		outPutList = []string{
-			"No Data Found"
+			"No Data Found",
 		}
 	}
 	st.OutPut = strings.Join(outPutList, perror.NewLine)

@@ -1,3 +1,5 @@
+// Package commands base command features
+// GetName, Clear, Parse, Verify, Run
 package commands
 
 import (
@@ -54,4 +56,11 @@ func (c *Command) Verify() error {
 // Run the command with arguments
 func (c *Command) Run() (string, error) {
 	return c.OutPut, nil
+}
+
+// Clear to clear the history data
+func (c *Command) Clear() {
+	c.InputArgs = perror.Empty
+	c.Args = []string{}
+	c.OutPut = perror.Empty
 }
