@@ -16,8 +16,8 @@ type CmdLeave struct {
 	SlotNumber ptypes.Index
 }
 
-// NewCmdleave new leave command instance
-func NewCmdleave() *CmdLeave {
+// NewCmdLeave new leave command instance
+func NewCmdLeave() *CmdLeave {
 	var cmd = new(CmdLeave)
 	cmd.Cmd = "leave"
 	return cmd
