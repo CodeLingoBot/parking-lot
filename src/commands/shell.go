@@ -18,7 +18,7 @@ type Shell struct {
 // NewShell create a shell
 func NewShell() *Shell {
 	return &Shell{
-		PS1:     ">",
+		PS1:     "",
 		cmdList: make([]string, 0),
 	}
 }
